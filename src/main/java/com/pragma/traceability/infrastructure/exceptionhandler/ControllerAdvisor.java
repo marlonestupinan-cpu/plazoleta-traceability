@@ -1,5 +1,6 @@
 package com.pragma.traceability.infrastructure.exceptionhandler;
 
+import com.pragma.traceability.infrastructure.exception.ForbiddenAccessException;
 import com.pragma.traceability.infrastructure.exception.NoDataFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,4 +32,13 @@ public class ControllerAdvisor {
         );
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
+
+    @ExceptionHandler(ForbiddenAccessException.class)
+    public ResponseEntity<Map<String, String>> handleForbiddenAccessException(
+            ForbiddenAccessException forbiddenAccessException
+    ) {
+        return ResponseEntity.status(HttpStatus.FORBIDDEN)
+                .body(Collections.singletonMap(MESSAGE, ExceptionResponse.FORBIDDEN_ACCESS.getMessage()));
+    }
+
 }

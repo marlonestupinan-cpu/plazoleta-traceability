@@ -1,13 +1,10 @@
-package com.pragma.traceability.domain.model;
+package com.pragma.traceability.application.dto.response;
 
-import lombok.AllArgsConstructor;
+import com.pragma.traceability.domain.model.State;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class Log {
+public class LogResponseDto {
     private String id;
     private State state;
     private Long idClient;
