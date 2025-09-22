@@ -1,5 +1,17 @@
 server:
   port: 8084
 
+application:
+  security:
+    jwt:
+      secret-key: 19b02086edcba74510ff59eaa84183b78ffdd8c8f3888de4aa831f9acddcbec9
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: trazabilidad_plazoleta
+
 appDescription: "Trazabilidad Plazoleta"
 appVersion: "1.0.0"
