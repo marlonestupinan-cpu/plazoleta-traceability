@@ -1,4 +1,4 @@
-package com.pragma.powerup.infrastructure.exceptionhandler;
+package com.pragma.traceability.infrastructure.exceptionhandler;
 
 public enum ExceptionResponse {
     NO_DATA_FOUND("No data found for the requested petition");

@@ -1,4 +1,4 @@
-package com.pragma.powerup.infrastructure.exception;
+package com.pragma.traceability.infrastructure.exception;
 
 public class NoDataFoundException extends RuntimeException {
     public NoDataFoundException() {

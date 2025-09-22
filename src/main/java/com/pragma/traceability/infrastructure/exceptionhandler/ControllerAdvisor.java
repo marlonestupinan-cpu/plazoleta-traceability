@@ -1,6 +1,6 @@
-package com.pragma.powerup.infrastructure.exceptionhandler;
+package com.pragma.traceability.infrastructure.exceptionhandler;
 
-import com.pragma.powerup.infrastructure.exception.NoDataFoundException;
+import com.pragma.traceability.infrastructure.exception.NoDataFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
