@@ -1,6 +1,7 @@
 package com.pragma.traceability.infrastructure.out.mongo.adapter;
 
 import com.pragma.traceability.domain.model.Log;
+import com.pragma.traceability.domain.model.State;
 import com.pragma.traceability.domain.spi.ILogPersistencePort;
 import com.pragma.traceability.infrastructure.out.mongo.mapper.ILogEntityMapper;
 import com.pragma.traceability.infrastructure.out.mongo.repository.ILogRepository;
@@ -22,6 +23,13 @@ public class LogMongoAdapter implements ILogPersistencePort {
     public List<Log> getOrderLogs(Long idOrder) {
         return logMapper.toLogList(
                 logRepository.findAllByIdOrderOrderByDatetimeAsc(idOrder)
+        );
+    }
+
+    @Override
+    public List<Log> getAllOrders(Long idRestaurant, State state) {
+        return logMapper.toLogList(
+                logRepository.findAllByIdRestaurantAndNewState(idRestaurant, state)
         );
     }
 }
