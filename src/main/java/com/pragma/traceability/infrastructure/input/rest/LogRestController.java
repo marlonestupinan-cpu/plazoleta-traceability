@@ -1,7 +1,9 @@
 package com.pragma.traceability.infrastructure.input.rest;
 
 import com.pragma.traceability.application.dto.request.SaveLogRequestDto;
+import com.pragma.traceability.application.dto.response.EmployeeResumeDto;
 import com.pragma.traceability.application.dto.response.LogResponseDto;
+import com.pragma.traceability.application.dto.response.OrderResumeDto;
 import com.pragma.traceability.application.handler.ILogHandler;
 import com.pragma.traceability.infrastructure.configuration.security.CustomUserDetails;
 import lombok.RequiredArgsConstructor;
@@ -39,4 +41,19 @@ public class LogRestController {
     ) {
         return ResponseEntity.ok(logHandler.getOrderLogs(idOrder, user.getId()));
     }
+
+    @GetMapping("/orders/resume")
+    @PreAuthorize("hasRole('PROPIETARIO')")
+    public ResponseEntity<List<OrderResumeDto>> getOrdersResume(
+            @RequestParam Long idRestaurant) {
+        return ResponseEntity.ok(logHandler.getOrderResume(idRestaurant));
+    }
+
+    @GetMapping("/employees/resume")
+    @PreAuthorize("hasRole('PROPIETARIO')")
+    public ResponseEntity<List<EmployeeResumeDto>> getEmployeesResume(
+            @RequestParam Long idRestaurant) {
+        return ResponseEntity.ok(logHandler.getEmployeeResume(idRestaurant));
+    }
+
 }
