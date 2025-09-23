@@ -8,13 +8,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 @Data
-@Document(collection = "logs")
+@Document(collection = "trazabilidad")
 @AllArgsConstructor
 public class LogEntity {
     @Id
     private String id;
-    @Field("estado")
-    private State state;
+    @Field("estado_anterior")
+    private State oldState;
+    @Field("estado_nuevo")
+    private State newState;
     @Field("id_cliente")
     private Long idClient;
     @Field("id_empleado")
@@ -25,4 +27,6 @@ public class LogEntity {
     private Long idRestaurant;
     @Field("fecha")
     private Long datetime;
+    @Field("correo_empleado")
+    private String employeeEmail;
 }

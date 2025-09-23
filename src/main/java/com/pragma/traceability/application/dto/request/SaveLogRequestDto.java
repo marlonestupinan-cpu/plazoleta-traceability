@@ -7,8 +7,9 @@ import javax.validation.constraints.NotNull;
 
 @Data
 public class SaveLogRequestDto {
+    private State oldState;
     @NotNull
-    private State state;
+    private State newState;
     @NotNull
     private Long idClient;
     private Long idEmployee;
@@ -18,4 +19,5 @@ public class SaveLogRequestDto {
     private Long idRestaurant;
     @NotNull
     private Long datetime;
+    private String employeeEmail;
 }
