@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class EmployeeResume {
+public class EmployeeResume implements Comparable<EmployeeResume>{
     Long idEmployee;
     String employeeEmail;
     Long median;
@@ -19,5 +19,10 @@ public class EmployeeResume {
 
     public Long getMedian() {
         return totalTime / numberOrders;
+    }
+
+    @Override
+    public int compareTo(EmployeeResume o) {
+        return Long.compare(this.getMedian(), o.getMedian());
     }
 }

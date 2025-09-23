@@ -82,6 +82,6 @@ public class LogUseCase implements ILogServicePort {
             }
         });
 
-        return new ArrayList<>(employees.values());
+        return employees.values().stream().sorted().collect(Collectors.toList());
     }
 }
